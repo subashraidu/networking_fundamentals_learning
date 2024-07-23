@@ -1,0 +1,100 @@
+
+# IP address
+
+An IP address, short for Internet Protocol address, is a unique numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. It serves two main purposes: identifying the host or network interface and providing the location of the device in the network architecture.
+
+IP addresses are typically represented in a human-readable format, such as IPv4 (e.g., 192.168.1.1) or IPv6 (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334). They are essential for devices to communicate with each other over the internet or any other network that uses the Internet Protocol.
+
+
+IPv4, or Internet Protocol version 4, is the fourth revision of the Internet Protocol (IP) and is the most widely used version of IP today. Here are some key aspects of IPv4:
+
+    Address Format: IPv4 addresses are 32-bit numerical identifiers written in decimal format, typically divided into four groups of numbers separated by dots (e.g., 192.168.1.1). Each group represents 8 bits (an octet), allowing for a total of approximately 4.3 billion unique addresses.
+
+    Binary Representation: Each IPv4 address can be represented as a 32-bit binary number. For example, the IPv4 address 192.168.1.1 in binary is:
+11000000.10101000.00000001.00000001
+
+
+Address Types:
+
+    Unicast: An IPv4 address used for one-to-one communication between devices.
+    Broadcast: A special address (e.g., 255.255.255.255) used to send data packets to all devices on a network.
+    Multicast: Used to send data packets to multiple devices that are interested in receiving the data.
+
+Private vs. Public Addresses: IPv4 addresses are categorized into private and public addresses:
+
+    Private addresses (e.g., 192.168.x.x, 10.x.x.x) are reserved for use within private networks and are not routable over the internet.
+    Public addresses are globally routable on the internet and are assigned to devices that directly connect to the internet.
+
+
+    Subnetting: IPv4 addresses can be divided into smaller networks called subnets, allowing organizations to efficiently manage and use their address space.
+
+    Address Exhaustion: Due to the rapid growth of the internet and the limited number of IPv4 addresses (only about 4.3 billion), IPv4 address exhaustion has become a significant issue. This led to the development and adoption of IPv6.
+
+IPv4 remains widely used despite its limitations in address space, primarily due to its established infrastructure and compatibility with existing network equipment and applications. However, IPv6 adoption is increasing to address the growing demand for IP addresses and to provide additional features and improvements over IPv4.
+
+
+# subnets
+
+Subnets, short for subnetworks, are a way to divide a larger network into smaller, more manageable parts. This division helps in improving network performance, security, and management. Here are the key aspects of subnets:
+
+    Purpose: Subnets allow a network administrator to logically segment a larger IP network into smaller, independent networks. Each subnet operates as a separate entity within the larger network infrastructure.
+
+    IP Addressing: Subnets are defined using IP addresses and subnet masks. A subnet mask determines which part of an IP address designates the network portion and which part designates the host portion. It uses binary '1's to identify the network portion and '0's for the host portion.
+
+    Example: Consider an IPv4 address like 192.168.1.0 with a subnet mask of 255.255.255.0 (or /24 in CIDR notation). Here:
+        The first three octets (192.168.1) represent the network address.
+        The last octet (0) represents the host address within that network.
+        The subnet mask 255.255.255.0 (or /24) specifies that the first 24 bits of the IP address are used for network identification, leaving 8 bits for host addresses within each subnet.
+
+    Benefits:
+        Efficient Use of IP Addresses: Subnets allow for more efficient utilization of IP addresses by logically grouping devices based on their location or function.
+        Improved Performance: By reducing the size of broadcast domains, subnets can improve network performance by limiting the scope of broadcast traffic.
+        Enhanced Security: Subnets can improve security by isolating traffic within specific segments, making it easier to apply and enforce security policies.
+
+    Subnetting: This is the process of dividing a single network into multiple smaller networks (subnets). It involves borrowing bits from the host portion of an IP address to create subnets with different subnet masks.
+
+    Subnet Masks: Subnet masks define the boundaries between the network portion and the host portion of an IP address. They are expressed in decimal dotted-quad notation (e.g., 255.255.255.0) or in CIDR notation (e.g., /24).
+
+    Types of Subnets: Subnets can be classified based on their size and purpose, such as:
+        Classful Subnets: Based on the traditional class-based addressing (Class A, B, or C).
+        Classless Subnets: Defined using CIDR (Classless Inter-Domain Routing) notation, allowing more flexible allocation of IP addresses.
+
+private subnets - that does not have access to internet  how to provide internet - attach route tables and give the destination as internet gateway.
+public subnet - that has access to internet 
+
+Overall, subnets provide flexibility and scalability in network design, allowing organizations to efficiently manage their IP address space and optimize network performance and security.
+
+you are creating subnet on private cloud - you have open stack.
+
+CIDR range  -is a way of explaining how many ip address are present in a subnet.
+
+
+#cidr
+
+
+CIDR stands for Classless Inter-Domain Routing, and it is a method used to allocate IP addresses and IP routing efficiently. CIDR is based on variable-length subnet masking (VLSM), which allows network administrators to divide an IP address space into subnets of different sizes, rather than being restricted to the older class-based addressing system (Class A, B, C, etc.).
+
+Here are the key aspects of CIDR:
+
+    IP Address Representation: In CIDR notation, an IP address is followed by a slash ("/") and a number, which indicates the subnet mask length. For example:
+        192.168.1.0/24
+        2001:0db8:85a3:0000:0000:8a2e:0370:7334/64
+
+    Here, "/24" and "/64" represent the subnet mask lengths in CIDR notation.
+
+    Subnet Mask Length: The number following the slash in CIDR notation specifies how many bits of the IP address are used for the network portion, leaving the remaining bits for host addresses. For instance:
+        /24 means the first 24 bits are used for the network part, and the remaining 8 bits are used for hosts.
+here in all IPv4 32 bits 24 can remain same only tha 8 bits can be varied to get the needed ip range -------- = 2power8  as bit can be 1 or 0 (32- number 24 , rangeofIP =2^difference)
+
+        /64 means the first 64 bits are used for the network part in IPv6 addresses, and the remaining 64 bits are used for hosts.
+
+    Benefits:
+        Efficiency: CIDR allows for more efficient use of IPv4 addresses compared to the older class-based addressing. It reduces address wastage by allowing networks of various sizes to be created from a contiguous block of addresses.
+        Flexibility: CIDR provides flexibility in designing and managing IP networks, as it enables subnetting without being bound to predefined class boundaries.
+        Routing Efficiency: CIDR simplifies routing on the internet by aggregating routes. Instead of having to maintain separate routing entries for every subnet, CIDR allows routers to group multiple subnets under a single routing entry, which reduces the size of routing tables and improves routing efficiency.
+
+    Example:
+        If an organization is allocated the IP address range 192.168.1.0/24, it means that the first 24 bits (192.168.1) are the network portion, and the remaining 8 bits (0-255) can be assigned to individual hosts within that network.
+
+CIDR notation has become the standard for IP address allocation and routing on the internet due to its efficiency and flexibility. It allows network administrators to manage IP address space more effectively, especially in large networks or when dealing with IPv4 address scarcity.
+
