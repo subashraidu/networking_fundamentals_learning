@@ -98,3 +98,37 @@ here in all IPv4 32 bits 24 can remain same only tha 8 bits can be varied to get
 
 CIDR notation has become the standard for IP address allocation and routing on the internet due to its efficiency and flexibility. It allows network administrators to manage IP address space more effectively, especially in large networks or when dealing with IPv4 address scarcity.
 
+
+
+
+
+most of the private subnets --> 192. 172 10
+
+8.8.8.8 public ip address taken by google.com, DNS for google.com
+
+
+
+ports
+
+In the context of IP (Internet Protocol), a port is a numerical identifier used to specify a particular process or service on a networked device. Ports help direct network traffic to the appropriate application or service running on a device.
+
+Here's a more detailed breakdown:
+Purpose of Ports in IP Networking:
+
+    Identification: Ports differentiate between different services or applications running on a device. For example, a web server might be listening on port 80 for HTTP traffic, while an email server might be listening on port 25 for SMTP (Simple Mail Transfer Protocol) traffic.
+    Communication: When a device sends data over the internet or a local network, it includes a destination port number in the packet. This helps the receiving device route the data to the correct application or service.
+
+Port Numbers:
+
+Ports are classified into three ranges:
+
+    Well-Known Ports (0-1023): These are reserved for widely used protocols and services. For example, port 80 for HTTP, port 443 for HTTPS, and port 25 for SMTP.
+    Registered Ports (1024-49151): These are used by software applications that are not as universally recognized as those using well-known ports but are registered with the Internet Assigned Numbers Authority (IANA) to avoid conflicts.
+    Dynamic or Private Ports (49152-65535): These are used for ephemeral purposes, typically assigned temporarily for client applications to communicate with servers.
+
+Example of Usage:
+
+When you access a website, your browser connects to the server's IP address and specifies port 80 (or 443 for HTTPS) to request web content. Similarly, when you send an email, your email client communicates with the email server using port 25 (or other ports like 587 or 465).
+
+In summary, ports in IP networking help manage and route different types of network traffic to the appropriate processes or services on a device.
+
